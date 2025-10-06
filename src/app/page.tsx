@@ -1,103 +1,280 @@
-import Image from "next/image";
+// "use client";
+
+// import Link from "next/link";
+// import Button from "../components/atoms/Button";
+// import { Card, CardContent } from "../components/atoms/Card";
+// import { BarChart3, Calculator } from "lucide-react";
+// import { motion } from "framer-motion";
+
+// export default function Home() {
+//   return (
+//     <main className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-blue-50 via-white to-purple-50 px-6">
+//       {/* Hero Section */}
+//       <motion.div
+//         initial={{ opacity: 0, y: 30 }}
+//         animate={{ opacity: 1, y: 0 }}
+//         transition={{ duration: 0.6 }}
+//         className="text-center max-w-2xl"
+//       >
+//         <div className="flex justify-center mb-4">
+//           <BarChart3 className="w-12 h-12 text-blue-600" />
+//         </div>
+
+//         <h1 className="text-5xl font-extrabold tracking-tight bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+//           Mutual Fund Explorer
+//         </h1>
+
+//         <p className="mt-4 text-gray-600 text-lg leading-relaxed">
+//           Search and explore Indian Mutual Funds, track NAV history, and calculate
+//           your SIP returns with beautiful interactive charts.
+//         </p>
+
+//         {/* Action Buttons */}
+//         <div className="flex gap-4 justify-center mt-8">
+//           <Link href="/funds">
+//             <Button size="lg" variant="primary">
+//               <BarChart3 className="w-5 h-5" /> Explore Funds
+//             </Button>
+//           </Link>
+//           <Link href="/calculators/sip">
+//             <Button size="lg" variant="outline">
+//               <Calculator className="w-5 h-5" /> Try SIP Calculator
+//             </Button>
+//           </Link>
+//         </div>
+//       </motion.div>
+
+//       {/* Features Section */}
+//       <section className="grid md:grid-cols-2 gap-6 mt-16 max-w-4xl w-full">
+//         <Card>
+//           <CardContent>
+//             <BarChart3 className="mx-auto h-10 w-10 text-purple-500 mb-3" />
+//             <h3 className="font-semibold text-xl mb-2">Track Funds Easily</h3>
+//             <p className="text-gray-500 text-sm">
+//               Get detailed insights into Indian mutual funds with real-time NAV
+//               history and comparisons.
+//             </p>
+//           </CardContent>
+//         </Card>
+//         <Card>
+//           <CardContent>
+//             <Calculator className="mx-auto h-10 w-10 text-blue-500 mb-3" />
+//             <h3 className="font-semibold text-xl mb-2">Smart SIP Calculator</h3>
+//             <p className="text-gray-500 text-sm">
+//               Plan your investments with accurate SIP calculations and visualize
+//               returns through charts.
+//             </p>
+//           </CardContent>
+//         </Card>
+//       </section>
+
+//       {/* Footer */}
+//       <footer className="mt-20 text-sm text-gray-500">
+//         © {new Date().getFullYear()} Mutual Fund Explorer. All rights reserved.
+//       </footer>
+//     </main>
+//   );
+// }
+"use client";
+
+import Link from "next/link";
+import Button from "../components/atoms/Button";
+import { Card, CardContent } from "../components/atoms/Card";
+import { BarChart3, Calculator, TrendingUp, Shield, Sparkles, ArrowRight } from "lucide-react";
+import { motion } from "framer-motion";
 
 export default function Home() {
-  return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1
+      }
+    }
+  };
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0 }
+  };
+
+  return (
+    <main className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 px-6 py-12 relative overflow-hidden">
+      {/* Animated Background Elements */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <motion.div
+          animate={{
+            scale: [1, 1.2, 1],
+            rotate: [0, 90, 0],
+          }}
+          transition={{
+            duration: 20,
+            repeat: Infinity,
+            ease: "linear"
+          }}
+          className="absolute -top-32 -right-32 w-96 h-96 bg-gradient-to-br from-blue-200/30 to-purple-200/30 rounded-full blur-3xl"
+        />
+        <motion.div
+          animate={{
+            scale: [1, 1.3, 1],
+            rotate: [0, -90, 0],
+          }}
+          transition={{
+            duration: 25,
+            repeat: Infinity,
+            ease: "linear"
+          }}
+          className="absolute -bottom-32 -left-32 w-96 h-96 bg-gradient-to-tr from-indigo-200/30 to-pink-200/30 rounded-full blur-3xl"
+        />
+      </div>
+
+      {/* Hero Section */}
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+        className="text-center max-w-4xl relative z-10"
+      >
+        <motion.div
+          initial={{ scale: 0 }}
+          animate={{ scale: 1 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          className="inline-flex items-center justify-center mb-6"
         >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
+          <div className="relative">
+            <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl blur-xl opacity-50"></div>
+            <div className="relative bg-white rounded-2xl p-4 shadow-lg">
+              <BarChart3 className="w-14 h-14 text-blue-600" />
+            </div>
+          </div>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.3 }}
+          className="inline-flex items-center gap-2 px-4 py-2 bg-blue-100/80 backdrop-blur-sm rounded-full text-blue-700 text-sm font-medium mb-6"
         >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
+          <Sparkles className="w-4 h-4" />
+          <span>Your Smart Investment Companion</span>
+        </motion.div>
+
+        <h1 className="text-6xl md:text-7xl font-extrabold tracking-tight mb-6">
+          <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 bg-clip-text text-transparent">
+            Mutual Fund
+          </span>
+          <br />
+          <span className="bg-gradient-to-r from-indigo-600 to-blue-600 bg-clip-text text-transparent">
+            Explorer
+          </span>
+        </h1>
+
+        <p className="mt-6 text-gray-600 text-xl leading-relaxed max-w-2xl mx-auto">
+          Discover, analyze, and invest in Indian Mutual Funds with confidence. 
+          Track NAV history, calculate SIP returns, and make informed decisions 
+          with beautiful interactive insights.
+        </p>
+
+        {/* Action Buttons */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.5 }}
+          className="flex flex-col sm:flex-row gap-4 justify-center mt-10"
         >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+          <Link href="/funds">
+            <Button size="lg" variant="primary" className="group shadow-lg hover:shadow-xl transition-all">
+              <BarChart3 className="w-5 h-5" /> 
+              Explore Funds
+              <ArrowRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
+            </Button>
+          </Link>
+          <Link href="/calculators/sip">
+            <Button size="lg" variant="outline" className="shadow-md hover:shadow-lg transition-all">
+              <Calculator className="w-5 h-5" /> 
+              Try SIP Calculator
+            </Button>
+          </Link>
+        </motion.div>
+
+        {/* Trust Indicators */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.7 }}
+          className="flex flex-wrap items-center justify-center gap-8 mt-12 text-sm text-gray-500"
+        >
+          <div className="flex items-center gap-2">
+            <Shield className="w-4 h-4 text-green-600" />
+            <span>Secure & Reliable</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <TrendingUp className="w-4 h-4 text-blue-600" />
+            <span>Real-time Data</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <Sparkles className="w-4 h-4 text-purple-600" />
+            <span>Free Forever</span>
+          </div>
+        </motion.div>
+      </motion.div>
+
+      {/* Features Section */}
+      <motion.section
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
+        className="grid md:grid-cols-2 gap-6 mt-24 max-w-5xl w-full relative z-10"
+      >
+        <motion.div variants={itemVariants}>
+          <Card className="group hover:shadow-2xl transition-all duration-300 border-0 bg-white/80 backdrop-blur-sm hover:-translate-y-2">
+            <CardContent className="relative overflow-hidden">
+              <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-purple-100 to-transparent rounded-full -mr-16 -mt-16 group-hover:scale-150 transition-transform duration-500"></div>
+              <div className="relative">
+                <div className="inline-flex p-3 bg-purple-100 rounded-xl mb-4 group-hover:scale-110 transition-transform">
+                  <BarChart3 className="h-8 w-8 text-purple-600" />
+                </div>
+                <h3 className="font-bold text-2xl mb-3 text-gray-900">Track Funds Easily</h3>
+                <p className="text-gray-600 leading-relaxed">
+                  Get detailed insights into Indian mutual funds with real-time NAV
+                  history, performance metrics, and comprehensive comparisons to make 
+                  smarter investment choices.
+                </p>
+              </div>
+            </CardContent>
+          </Card>
+        </motion.div>
+
+        <motion.div variants={itemVariants}>
+          <Card className="group hover:shadow-2xl transition-all duration-300 border-0 bg-white/80 backdrop-blur-sm hover:-translate-y-2">
+            <CardContent className="relative overflow-hidden">
+              <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-blue-100 to-transparent rounded-full -mr-16 -mt-16 group-hover:scale-150 transition-transform duration-500"></div>
+              <div className="relative">
+                <div className="inline-flex p-3 bg-blue-100 rounded-xl mb-4 group-hover:scale-110 transition-transform">
+                  <Calculator className="h-8 w-8 text-blue-600" />
+                </div>
+                <h3 className="font-bold text-2xl mb-3 text-gray-900">Smart SIP Calculator</h3>
+                <p className="text-gray-600 leading-relaxed">
+                  Plan your investments with precision using our advanced SIP calculator.
+                  Visualize potential returns, compare scenarios, and chart your path to 
+                  financial goals.
+                </p>
+              </div>
+            </CardContent>
+          </Card>
+        </motion.div>
+      </motion.section>
+
+      {/* Footer */}
+      <motion.footer
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1 }}
+        className="mt-24 text-sm text-gray-500 relative z-10"
+      >
+        © {new Date().getFullYear()} Mutual Fund Explorer. All rights reserved.
+      </motion.footer>
+    </main>
   );
 }

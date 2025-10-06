@@ -1,0 +1,21 @@
+:root {
+  /* Colors */
+  --primary-color: #2563eb; /* blue */
+  --secondary-color: #f97316; /* orange */
+  --background: #ffffff;
+  --text-color: #1f2937;
+  --card-bg: #f3f4f6;
+  --border-color: #e5e7eb;
+
+  /* Font sizes */
+  --font-small: 0.875rem;
+  --font-base: 1rem;
+  --font-large: 1.25rem;
+}
+
+[data-theme='dark'] {
+  --background: #1f2937;
+  --text-color: #f9fafb;
+  --card-bg: #374151;
+  --border-color: #4b5563;
+}
